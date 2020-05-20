@@ -12,3 +12,4 @@ In your browser, open the file:
 
     /www/index.html
 
+&copy; Fast & Feast
