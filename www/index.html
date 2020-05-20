@@ -128,11 +128,21 @@ var offset,
     clockMili = 0,
     interval,
     intervalMili;
+
+function saveData(key, val) {
+	window.localStorage.setItem(key, val);
+}
+
+function getData(key) {
+	return window.localStorage.getItem(key);
+}
+
 function history() {
   var lastFast = 0.00;
   var hours = ((clock / 1000) / 3600).toFixed(3);
   $("#last_fasttrack").text(hours);
 }
+
 function start() {
     if (!interval) {
       offset = Date.now();
@@ -140,6 +150,7 @@ function start() {
       intervalMili = setInterval(update, 1);
     }
   }
+
   function stop() {
     if (interval) {
       clearInterval(interval);
@@ -149,14 +160,17 @@ function start() {
       history();
     }
   }
+
   function reset() {
     clock = 0;
     render();
   }
+
   function update() {
     clock += delta();
     render();
   }
+
   function render() {
     var sec = Math.ceil(clock / 1000);
     var min = (Math.ceil(clock / 1000) / 60).toFixed(2);
@@ -175,13 +189,16 @@ function start() {
       $("#mili").text("");
     }
   }
+
   function delta() {
     var now = Date.now(),
         d = now - offset;
     offset = now;
     return d;
   }
+
   reset();
+  
   $("#start_clock").click(
 	function(){
       stop();
