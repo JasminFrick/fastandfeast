@@ -1,44 +1,196 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        <title>JQuery Mobile Template App</title>
-
-        <link rel="stylesheet" href="libs/jQueryMobile/jquery.mobile-1.4.5.min.css" />
-		
-    </head>
-    <body>
-
-    	<div data-role="page">
-			<div data-role="header">
-				<h1>Título da Página</h1>
-			</div><!-- /header -->
-
-			<div role="main" class="ui-content">
-				<ul data-role="listview">
-				    <li>Acura</li>
-				    <li>Audi</li>
-				    <li>BMW</li>
-				    <li>Cadillac</li>
-				    <li>Ferrari</li>
-				</ul>
-			</div><!-- /conteúdo -->
-
-			<div data-role="footer">
-				<h4>Rodapé</h4>
-			</div><!-- /footer -->
-		</div><!-- /page -->
-
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="libs/fastclick.min.js"></script>
-        <script src="libs/jquery-1.12.4.min.js"></script>
-		<script src="libs/jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
-
-		<script type="text/javascript" src="js/index.js"></script>
-
-		<script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+<head>
+	<title>Page Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="libs/jQueryMobile/jquery.mobile-1.4.5.min.css" />
+	<script src="libs/jquery-1.12.4.min.js"></script>
+	<script src="libs/jQueryMobile/jquery.mobile-1.4.5.min.js">
+    </script>
+    <style>
+        .header{
+            background-color: #3DAEC0;
+            color: #FFFF;
+        }
+        .footer{
+            background-color: #3DAEC0;
+            color: #FFFF;
+        }
+        .center {
+        text-align: center;
+        }
+        #last_fasttrac, #timer{
+        height: 2rem;
+}
+    </style>
+</head>
+<body>
+<!--Home Page Begins-->
+<div data-role="page" id="home" data-theme="a">
+    <div data-role="header" data-theme="a"  class="header  center">FastTrack</div>
+        <div data-role="content" class="center">Welcome to your intermittent fasting time tracker!</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" data-theme="a" class="footer">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#timer">Timer</a></li>
+                <li><a href="#history">History</a></li>
+            </ul>
+        </div>
+	</div>
+</div>
+<!--Home Page Ends -->
+<!--About Page Begins-->
+<div data-role="page" id="about" data-theme="a">
+    <div data-role="header" data-theme="a"  class="header  center">FastTrack</div>
+        <div data-role="content" class="center">About Us</div>
+        <div data-role="content" class="center">Intermittent Fasting is an eating schedule that allows you to choose when you fast and when you eat.</div>
+    <div data-role="content" class="center">Intermittent Fasting has been shown to help you lose and maintain your weight, give your gut a rest, improve mental clarity and overall health.</div>
+    <div data-role="content" class="center">Choose the eating plan that works best for you.</div>
+    <div class="center" data-role="content">FastTrack is here to help you track your fasting windows and overall progress.</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" data-theme="a">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#timer">Timer</a></li>
+                <li><a href="#history">History</a></li>
+            </ul>
+        </div>
+	</div>
+    </div>
+<!--About Page Ends-->
+<!--Timer Page Begins-->
+<div data-role="page" id="timer" data-theme="a">
+    <div data-role="header" data-theme="a"  class="header  center">FastTrack</div>
+    <div data-role="content" class="center">Start Tracking Your Fasting Time!</div>
+	<div role="main" class="ui-content">
+    <div class="ui-grid-a ui-responsive center">
+        <div class="ui-block-a">
+          <h4 class="ui-bar ui-bar-a">Last Eat (<span id="format">Seconds</span>)</h4>
+          <h1><span id="clock">0</span><span id="mili">00</span></h1>
+        </div>
+        <div class="ui-block-b">
+          <h4 class="ui-bar ui-bar-a">Last FastTrack Period (Hours)</h4>
+           <h1 id="last_fasttrack">
+          0.00
+          </h1>
+        </div>
+    </div>
+    <div class="ui-grid-solo">
+        <div class="ui-block-a">
+          <a href="#" id="start_clock" class="ui-btn ui-shadow ui-corner-all">Track Fast</a>
+        </div>
+    </div>
+</div><!-- /content -->
+    	<div data-role="footer" data-position="fixed">
+		  <div data-role="navbar" data-theme="a">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#timer">Timer</a></li>
+                <li><a href="#history">History</a></li>
+            </ul>
+        </div>
+	</div>
+</div>
+<!--Timer Page Ends-->
+<!--History Page Begins-->
+<div data-role="page" id="history" data-theme="a">
+    <div data-role="header" data-theme="a"  class="header  center">FastTrack</div>
+        <div data-role="content" class="center">History</div>
+        <ul data-role="listview" data-filter="true">
+                <li><a href="#">May 2, 2020 16 hours</a></li>
+                <li><a href="#">May 3, 2020 15 hours</a></li>
+                <li><a href="#">May 4, 2020 16 hours</a></li>
+                <li><a href="#">May 5, 2020 17 hours</a></li>
+                <li><a href="#">May 6, 2020 16 hours</a></li>
+                <li><a href="#">May 7, 2020 18 hours</a></li>
+                <li><a href="#">May 8, 2020 16 hours</a></li>
+        </ul>
+    	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" data-theme="a">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#timer">Timer</a></li>
+                <li><a href="#history">History</a></li>
+            </ul>
+        </div>
+	</div>
+</div>
+<!--History Page Ends-->
+<script>
+jQuery(document).ready(function($) {
+var offset,
+    clock = 0,
+    clockMili = 0,
+    interval,
+    intervalMili;
+function history() {
+  var lastFast = 0.00;
+  var hours = ((clock / 1000) / 3600).toFixed(3);
+  $("#last_fasttrack").text(hours);
+}
+function start() {
+    if (!interval) {
+      offset = Date.now();
+      interval = setInterval(update, 1000);
+      intervalMili = setInterval(update, 1);
+    }
+  }
+  function stop() {
+    if (interval) {
+      clearInterval(interval);
+      clearInterval(intervalMili);
+      interval = null;
+      intervalMili = null;
+      history();
+    }
+  }
+  function reset() {
+    clock = 0;
+    render();
+  }
+  function update() {
+    clock += delta();
+    render();
+  }
+  function render() {
+    var sec = Math.ceil(clock / 1000);
+    var min = (Math.ceil(clock / 1000) / 60).toFixed(2);
+    var hour = (Math.ceil(clock / 1000) / 3600).toFixed(2);
+    if(hour <= 1 && min <= 1){
+      $("#clock").text(sec);
+      $("#format").text("Seconds");
+      $("#mili").text(  "." + ((clock / 1000).toFixed(3) % 1).toFixed(2).substring(2));
+    }else if(hour <= 1) {
+      $("#clock").text(min);
+      $("#format").text("Minutes");
+      $("#mili").text("");
+    }else {
+      $("#clock").text(hour);
+      $("#format").text("Hours");
+      $("#mili").text("");
+    }
+  }
+  function delta() {
+    var now = Date.now(),
+        d = now - offset;
+    offset = now;
+    return d;
+  }
+  reset();
+  $("#start_clock").click(
+	function(){
+      stop();
+      reset();
+      start();
+      render();
+    }
+  );
+});
+</script>
+</body>
 </html>
